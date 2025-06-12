@@ -40,7 +40,7 @@ olist-lakehouse/
 ```
 
 - Pipeline diagramnya
-
+Diagram Pipeline lakehouse.png 
 
 
 
