@@ -40,7 +40,7 @@ olist-lakehouse/
 ```
 
 - Pipeline diagramnya
-![Image](https://github.com/user-attachments/assets/a0cbf627-9228-4b6a-8c6d-15e11236a306)
+![Diagram Pipeline lakehouse](https://github.com/user-attachments/assets/e24670b4-d6e6-4e07-bccb-5325bd5fe4ac)
 
 - End-to-end Arsitektur Data Lakehouse
 ![End-to-End data lakehouse architecture](https://github.com/user-attachments/assets/34be8cbc-c9f1-46c6-a64a-a66e2c94cf9b)
