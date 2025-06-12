@@ -12,9 +12,35 @@ Anggota Kelompok:
 | 4. | Benjamin Khawarizmi Habibi | 5027231078 |
 | 5. | Radella Chesa S | 5027231064 |
 
-- Dataset yang digunakan
+- Dataset yang digunakan bersumber disini:
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
+
 - Struktur Folder
+
+```
+olist-lakehouse/
+├── data/
+│   ├── raw/                 ← 🔹 Dataset Olist (.csv)
+│   ├── bronze/              ← Disalin dari raw atau hasil landing
+│   ├── silver/              ← Hasil cleaning & join
+│   └── gold/                ← Hasil feature engineering (untuk ML)
+│
+├── docker/
+│   ├── spark/
+│   │   └── etl_pipeline.py  ← ETL script
+│   ├── mlflow/
+│   │   └── train_model.py   ← ML model training
+│   ├── fastapi/
+│   │   └── main.py          ← API serving model
+│   └── streamlit/
+│       └── ui.py            ← Client UI
+│
+├── mlruns/                  ← MLflow tracking
+└── docker-compose.yml
+```
+
 - Pipeline diagramnya
+
 
 
 
