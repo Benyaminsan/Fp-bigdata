@@ -40,7 +40,7 @@ olist-lakehouse/
 ```
 
 - WorkFlow dari projectnya
- ![Workflow Arsitektur drawio](https://github.com/user-attachments/assets/4b2e379e-953a-40df-aa47-b799c743641c)
+![Workflow Arsitektur Project](https://github.com/user-attachments/assets/7119c901-e31e-4462-86bb-afe12472000f)
 
 
 - Pipeline diagramnya
