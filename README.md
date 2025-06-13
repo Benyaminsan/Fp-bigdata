@@ -45,5 +45,8 @@ olist-lakehouse/
 - End-to-end Arsitektur Data Lakehouse
 ![End-to-End data lakehouse architecture](https://github.com/user-attachments/assets/34be8cbc-c9f1-46c6-a64a-a66e2c94cf9b)
 
+- UI Client
+  ![75-percent-orange-ring-infographic-by-Vexels (1)](https://github.com/user-attachments/assets/698ebb1b-e1bf-4803-be04-8b971a7f4d22)
+
 
 
