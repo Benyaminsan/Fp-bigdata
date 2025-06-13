@@ -42,10 +42,6 @@ olist-lakehouse/
 - WorkFlow dari projectnya
 ![Workflow Arsitektur Project](https://github.com/user-attachments/assets/7119c901-e31e-4462-86bb-afe12472000f)
 
-
-- Pipeline diagramnya
-![Diagram Pipeline lakehouse](https://github.com/user-attachments/assets/e24670b4-d6e6-4e07-bccb-5325bd5fe4ac)
-
 - End-to-end Arsitektur Data Lakehouse
 ![End-to-End data lakehouse architecture](https://github.com/user-attachments/assets/34be8cbc-c9f1-46c6-a64a-a66e2c94cf9b)
 
