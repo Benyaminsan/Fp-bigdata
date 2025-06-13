@@ -39,11 +39,16 @@ olist-lakehouse/
 └── docker-compose.yml
 ```
 
+- WorkFlow dari projectnya
+ ![Workflow Arsitektur drawio](https://github.com/user-attachments/assets/4b2e379e-953a-40df-aa47-b799c743641c)
+
+
 - Pipeline diagramnya
 ![Diagram Pipeline lakehouse](https://github.com/user-attachments/assets/e24670b4-d6e6-4e07-bccb-5325bd5fe4ac)
 
 - End-to-end Arsitektur Data Lakehouse
 ![End-to-End data lakehouse architecture](https://github.com/user-attachments/assets/34be8cbc-c9f1-46c6-a64a-a66e2c94cf9b)
+
 
 - UI Client
  ![WhatsApp Image 2025-06-13 at 08 04 53_213db181](https://github.com/user-attachments/assets/701184b6-ca15-41bf-b1f3-c620c57e3dad)
