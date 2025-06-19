@@ -35,8 +35,24 @@ olist-lakehouse/
 │   └── streamlit/
 │       └── ui.py            ← Client UI
 │
-├── minio-data/              ← Data di MinIO
-├── mlruns/                  ← MLflow tracking
+├── minio_data/                    ← Folder backend untuk penyimpanan MinIO (object storage)
+    │   ├── raw/                       ← Mirroring data mentah (format internal MinIO)
+    │   ├── bronze/
+    │   ├── silver/
+    │   └── gold/
+    │
+    └── mlruns/                        ← Log dan metadata eksperimen MLflow
+        └── [experiment_id]/
+            ├── meta.yaml              ← Metadata eksperimen
+            └── [run_id]/
+                ├── artifacts/
+                │   └── model/
+                │       ├── model.pkl              ← Model hasil training
+                │       ├── MLmodel                ← Metadata model
+                │       └── requirements.txt       ← Dependensi model
+                ├── metrics/                       ← Metrik evaluasi (MAE, RMSE, dll)
+                ├── params/                        ← Parameter training (max_depth, n_estimators, dll)
+                └── tags/                          ← Metadata tambahan MLflow
 └── docker-compose.yml
 ```
 
