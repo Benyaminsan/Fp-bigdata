@@ -13,7 +13,11 @@ Anggota Kelompok:
 | 5. | Radella Chesa S | 5027231064 |
 
 - Dataset yang digunakan bersumber disini:
+
 https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
+
+- Dataset untuk Product bergambar:
+https://www.kaggle.com/datasets/fatihkgg/ecommerce-product-images-18k/data
 
 - Struktur Folder
 
