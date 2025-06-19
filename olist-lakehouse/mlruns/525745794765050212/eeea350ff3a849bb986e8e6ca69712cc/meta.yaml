@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/525745794765050212/eeea350ff3a849bb986e8e6ca69712cc/artifacts
+end_time: 1750331005378
+entry_point_name: ''
+experiment_id: '525745794765050212'
+lifecycle_stage: active
+run_id: eeea350ff3a849bb986e8e6ca69712cc
+run_name: lyrical-koi-951
+run_uuid: eeea350ff3a849bb986e8e6ca69712cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750331001815
+status: 3
+tags: []
+user_id: root

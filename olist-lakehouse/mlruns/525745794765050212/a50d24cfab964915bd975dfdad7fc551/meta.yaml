@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/525745794765050212/a50d24cfab964915bd975dfdad7fc551/artifacts
+end_time: 1749744042584
+entry_point_name: ''
+experiment_id: '525745794765050212'
+lifecycle_stage: active
+run_id: a50d24cfab964915bd975dfdad7fc551
+run_name: gentle-crane-965
+run_uuid: a50d24cfab964915bd975dfdad7fc551
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749744040391
+status: 3
+tags: []
+user_id: root
