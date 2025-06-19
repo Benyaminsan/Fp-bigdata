@@ -20,7 +20,7 @@ https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
 ```
 olist-lakehouse/
 ├── data/
-│   ├── raw/                 ← 🔹 Dataset Olist (.csv)
+│   ├── raw/                 ← Dataset Olist (.csv)
 │   ├── bronze/              ← Disalin dari raw atau hasil landing
 │   ├── silver/              ← Hasil cleaning & join
 │   └── gold/                ← Hasil feature engineering (untuk ML)
@@ -41,7 +41,7 @@ olist-lakehouse/
 ```
 
 - WorkFlow dari projectnya
-![Workflow Arsitektur Project](https://github.com/user-attachments/assets/7119c901-e31e-4462-86bb-afe12472000f)
+![Image](https://github.com/user-attachments/assets/d82d4ea1-56a9-4f4a-acba-bb3e02536981)
 
 - End-to-end Arsitektur Data Lakehouse
 ![End-to-End data lakehouse architecture](https://github.com/user-attachments/assets/34be8cbc-c9f1-46c6-a64a-a66e2c94cf9b)
