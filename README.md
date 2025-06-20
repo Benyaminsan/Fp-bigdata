@@ -1,6 +1,6 @@
 # Final Project Big Data dan Lakehouse
 
-Membuat Sales Prediction untuk mengetahui potensi penjualan di masa depan
+Membuat Sales Prediction untuk mengetahui potensi penjualan di masa depan yang berpihak kepada seller. Nantinya produk yang akan dikirim kepada konsumer akan memperoleh data mulai dari profit margin, price/day ratio, Gross profit(laba kotor), dan Review Sentiment. Diharapkan dengan adanya aplikasi ini bisa meningkatkan efisiensi dalam perhitungan terutama dalam Opex dan Delivery Cost. Sehingga, peningkatan produktifitas dapat terjamin untuk membuka peluang atau langkah strategi seller kedepannya.
 
 Anggota Kelompok:
 
@@ -17,6 +17,7 @@ Anggota Kelompok:
 https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
 
 - Dataset untuk Product bergambar:
+
 https://www.kaggle.com/datasets/fatihkgg/ecommerce-product-images-18k/data
 
 - Struktur Folder
