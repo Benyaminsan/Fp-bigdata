@@ -32,18 +32,33 @@ olist-lakehouse/
 │
 ├── docker/
 │   ├── streamer/
+│   │   ├── Dockerfile
 │   │   └── local_to_minio_streamer.py  ← Streamer dari local ke MinIO
 │   ├── spark/
 │   │   └── etl_pipeline.py  ← ETL script
 │   ├── mlflow/
 │   │   └── train_model.py   ← ML model training
 │   ├── fastapi/
+│   │   ├── Dockerfile
+│   │   ├── __pycache__
 │   │   └── main.py          ← API serving model
 │   └── streamlit/
+│       ├── Dockerfile
+│       ├── requirements.txt
 │       └── ui.py            ← Client UI
 │
 └── docker-compose.yml
+└── mlruns
+        └── 525745794765050212
+            ├── 4477717b16df42a680f2765ce59f7f35
+            ├── 6486f32a9de64666b989f4f02f06744a
+            ├── a4042ade73a74d2dbe6d8ec7854316b5
+            ├── a50d24cfab964915bd975dfdad7fc551
+            ├── b0340fffd7604504a8e23a4d01cac627
+            ├── eeea350ff3a849bb986e8e6ca69712cc
+            └── meta.yaml
 ```
+
 
 - WorkFlow dari projectnya
 ![Image](https://github.com/user-attachments/assets/d82d4ea1-56a9-4f4a-acba-bb3e02536981)
