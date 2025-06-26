@@ -8,10 +8,11 @@ import os
 app = FastAPI(title="Olist Price Predictor API")
 
 # Use the actual run_id from training
-RUN_ID = "a50d24cfab964915bd975dfdad7fc551"
+RUN_ID = "4477717b16df42a680f2765ce59f7f35"
 MODEL = None
 
 class PredictionInput(BaseModel):
+    cost_price: float
     freight_value: float
     delivery_days: float
     review_score: float
@@ -19,6 +20,7 @@ class PredictionInput(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
+                "cost_price": 50.0,
                 "freight_value": 15.5,
                 "delivery_days": 7.0,
                 "review_score": 4.2
@@ -55,12 +57,14 @@ async def predict(input_data: PredictionInput):
         
         # Prepare input data matching training schema exactly
         input_df = pd.DataFrame({
+            'cost_price': [float(input_data.cost_price)],
             'freight_value': [float(input_data.freight_value)],
             'delivery_days': [float(input_data.delivery_days)],
             'review_score': [str(input_data.review_score)]  # Convert to string as expected by model
         })
         
         # Convert columns to match training data types
+        input_df['cost_price'] = input_df['cost_price'].astype('float32')
         input_df['freight_value'] = input_df['freight_value'].astype('float64')
         input_df['delivery_days'] = input_df['delivery_days'].astype('float64')
         input_df['review_score'] = input_df['review_score'].astype('str')
@@ -77,6 +81,7 @@ async def predict(input_data: PredictionInput):
         return PredictionOutput(
             predicted_price=round(predicted_price, 2),
             input_features={
+                "cost_price": input_data.cost_price,
                 "freight_value": input_data.freight_value,
                 "delivery_days": input_data.delivery_days,
                 "review_score": input_data.review_score

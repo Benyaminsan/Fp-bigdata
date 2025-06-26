@@ -3,21 +3,38 @@ version: '3.8'
 services:
   minio:
     image: minio/minio:RELEASE.2023-09-07T02-05-02Z
+    #image: bitnami/minio:latest
     ports:
       - "9000:9000"
       - "9001:9001"
-    volumes:
-      - ./minio_data:/data
+    #volumes:
+      #- minio_data:/data
     environment:
       - MINIO_ROOT_USER=minioadmin
       - MINIO_ROOT_PASSWORD=minioadmin
-      - MINIO_DEFAULT_BUCKETS=raw,bronze,silver,gold
+      #- MINIO_DEFAULT_BUCKETS=raw,bronze,silver,gold
     command: server /data --console-address ":9001"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
       timeout: 20s
       retries: 3
+
+  createbuckets:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      /usr/bin/mc alias set myminio http://minio:9000 minioadmin minioadmin;
+      /usr/bin/mc mb myminio/raw;
+      /usr/bin/mc mb myminio/bronze;
+      /usr/bin/mc mb myminio/silver;
+      /usr/bin/mc mb myminio/gold;
+      exit 0;
+      "
 
   spark:
     build: ./docker/spark
@@ -33,6 +50,8 @@ services:
     depends_on:
       minio:
         condition: service_healthy
+      streamer:
+        condition: service_started
 
   mlflow:
     build: ./docker/mlflow
@@ -68,12 +87,35 @@ services:
       - "8501:8501"
     volumes:
       - ./docker/streamlit:/app
+    environment:
+      - MINIO_ENDPOINT=http://minio:9000
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      - MINIO_RAW_BUCKET_NAME=raw
     depends_on:
       - fastapi
+      - minio
+
+  streamer:
+    build: ./docker/streamer
+    volumes:
+      - ./data:/monitored_source_data
+    environment:
+      - MINIO_ENDPOINT=http://minio:9000
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      - MINIO_RAW_BUCKET=raw
+      - LOCAL_DATA_PATH=/monitored_source_data 
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      minio:
+        condition: service_healthy
+      createbuckets:
+        condition: service_completed_successfully
 
 networks:
   default:
     driver: bridge
 
-volumes:
-  minio_data: {}
+#volumes:
+  #minio_data: {}

@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/525745794765050212/6486f32a9de64666b989f4f02f06744a/artifacts
+end_time: 1750386510269
+entry_point_name: ''
+experiment_id: '525745794765050212'
+lifecycle_stage: active
+run_id: 6486f32a9de64666b989f4f02f06744a
+run_name: nervous-gull-605
+run_uuid: 6486f32a9de64666b989f4f02f06744a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750386500583
+status: 3
+tags: []
+user_id: root

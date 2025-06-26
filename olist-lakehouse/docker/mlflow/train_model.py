@@ -70,6 +70,11 @@ def train_model():
         else:
             print("⚠️ Kolom 'price' tidak ada atau bukan numerik. Skipping price filtering.")
 
+        if 'cost_price' in df.columns and pd.api.types.is_numeric_dtype(df['cost_price']):
+            df = df[df['cost_price'] > 0] 
+        else:
+            print("⚠️ Kolom 'cost_price' tidak ada atau bukan numerik. Skipping cost_price filtering.")
+
         if 'freight_value' in df.columns and pd.api.types.is_numeric_dtype(df['freight_value']):
             df = df[df['freight_value'] >= 0]
         else:
@@ -87,7 +92,7 @@ def train_model():
 
         print(f"📊 Data after cleaning: {df.shape}")
         
-        potential_features = ['freight_value', 'delivery_days', 'review_score']
+        potential_features = ['cost_price', 'freight_value', 'delivery_days', 'review_score']
         available_features = [col for col in potential_features if col in df.columns]
         
         print(f"Using features: {available_features}")

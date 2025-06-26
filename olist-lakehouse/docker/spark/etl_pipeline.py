@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, to_date, datediff
+from pyspark.sql.functions import col, to_date, datediff, rand
 import os
 
 # Ambil konfigurasi MinIO dari environment variables
@@ -61,6 +61,12 @@ try:
            .withColumn("delivery_days", datediff("order_delivered_customer_date", "order_approved_at"))
 
     df = df.filter(col("price").isNotNull() & col("freight_value").isNotNull())
+    df = df.withColumn("price", col("price").cast("float"))
+
+    #df = df.withColumn("cost_price", (col("price") * 0.7).cast("float"))
+
+    df = df.withColumn("cost_price_ratio", (rand() * 0.3 + 0.5)) # Untuk inspeksi jika perlu
+    df = df.withColumn("cost_price", (col("price") * col("cost_price_ratio")).cast("float"))
 
     df.coalesce(1).write.mode("overwrite").parquet(f"{silver_bucket}/olist_cleaned")
     print("Data saved to silver layer")
@@ -68,7 +74,7 @@ try:
     # === GOLD LAYER === #
     print(f"Processing gold layer to {gold_bucket}...")
     gold_df = df.select(
-        "freight_value", "price", "delivery_days", "review_score", "product_category_name"
+        "cost_price", "freight_value", "price", "delivery_days", "review_score", "product_category_name"
     )
 
     gold_df.coalesce(1).write.mode("overwrite").parquet(f"{gold_bucket}/olist_features") # direktori, bukan file

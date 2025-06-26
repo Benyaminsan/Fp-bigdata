@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/525745794765050212/4477717b16df42a680f2765ce59f7f35/artifacts
+end_time: 1750949367492
+entry_point_name: ''
+experiment_id: '525745794765050212'
+lifecycle_stage: active
+run_id: 4477717b16df42a680f2765ce59f7f35
+run_name: upbeat-foal-869
+run_uuid: 4477717b16df42a680f2765ce59f7f35
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750949362058
+status: 3
+tags: []
+user_id: root
