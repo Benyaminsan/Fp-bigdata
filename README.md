@@ -31,6 +31,8 @@ olist-lakehouse/
 │   └── gold/                ← Hasil feature engineering (untuk ML)
 │
 ├── docker/
+│   ├── streamer/
+│   │   └── local_to_minio_streamer.py  ← Streamer dari local ke MinIO
 │   ├── spark/
 │   │   └── etl_pipeline.py  ← ETL script
 │   ├── mlflow/
@@ -40,24 +42,6 @@ olist-lakehouse/
 │   └── streamlit/
 │       └── ui.py            ← Client UI
 │
-├── minio_data/                    ← Folder backend untuk penyimpanan MinIO (object storage)
-    │   ├── raw/                       ← Mirroring data mentah (format internal MinIO)
-    │   ├── bronze/
-    │   ├── silver/
-    │   └── gold/
-    │
-    └── mlruns/                        ← Log dan metadata eksperimen MLflow
-        └── [experiment_id]/
-            ├── meta.yaml              ← Metadata eksperimen
-            └── [run_id]/
-                ├── artifacts/
-                │   └── model/
-                │       ├── model.pkl              ← Model hasil training
-                │       ├── MLmodel                ← Metadata model
-                │       └── requirements.txt       ← Dependensi model
-                ├── metrics/                       ← Metrik evaluasi (MAE, RMSE, dll)
-                ├── params/                        ← Parameter training (max_depth, n_estimators, dll)
-                └── tags/                          ← Metadata tambahan MLflow
 └── docker-compose.yml
 ```
 
@@ -69,16 +53,18 @@ olist-lakehouse/
 
 ## Cara menjalankan:
 1. Gunakan `docker-compose up -d` untuk menjalankan seluruh service.
-2. Upload data yang ada di directory `./data/raw` ke bucket raw yang ada di MinIO yang dapat diakses di `http://localhost:9001`. Pastikan juga seluruh bucket (raw, bronze, silver, gold) sudah dibuat.
-   ![image](https://github.com/user-attachments/assets/936f8f0c-a70a-4364-b762-6508354c802c)
-   ![image](https://github.com/user-attachments/assets/89edf5d1-70a7-4234-8937-6955efd4e6b3)
-3. Jalankan ETL pipeline yang ada di service Spark dengan command `docker-compose exec spark spark-submit /app/etl_pipeline.py`.
-4. Setelah menjalankan ETL, lakukan training model pada MLflow dengan command `docker-compose exec mlflow python /app/train_model.py`.
-5. Setelah training model, model prediksi dapat diakses melalui `http://localhost:8501/`.
+2. Setelah menjalankan semua service, tiap bucket di MinIO (raw, bronze, silver, gold) akan terbentuk secara otomatis. Selain itu, data dari local juga akan di-stream secara otomatis ke MinIO.
+   ![image](https://github.com/user-attachments/assets/a8f260e5-647b-40f7-8fe5-19c039ac38bd)
+   ![image](https://github.com/user-attachments/assets/415fc909-04e3-4b2e-be28-c46cf7863add)
+4. Jalankan ETL pipeline yang ada di service Spark dengan command `docker-compose exec spark spark-submit /app/etl_pipeline.py`.
+5. Setelah menjalankan ETL, lakukan training model pada MLflow dengan command `docker-compose exec mlflow python /app/train_model.py`.
+6. Setelah training model, model prediksi dapat diakses melalui `http://localhost:8501/`.
 
 ## Dokumentasi
 - UI Client
- ![WhatsApp Image 2025-06-13 at 08 04 53_213db181](https://github.com/user-attachments/assets/701184b6-ca15-41bf-b1f3-c620c57e3dad)
+  ![image](https://github.com/user-attachments/assets/db754b56-2f89-48c1-8843-14a7850d1060)
+  ![image](https://github.com/user-attachments/assets/eeb392e1-df64-46c0-bb01-2713bd66feae)
+
 
 
 
