@@ -25,7 +25,7 @@ https://www.kaggle.com/datasets/fatihkgg/ecommerce-product-images-18k/data
 ```
 olist-lakehouse/
 ├── data/
-│   ├── raw/                 ← Dataset Olist (.csv)
+│   ├── raw/                 ← Dataset Olist (.csv) + gambar
 │   ├── bronze/              ← Disalin dari raw atau hasil landing
 │   ├── silver/              ← Hasil cleaning & join
 │   └── gold/                ← Hasil feature engineering (untuk ML)
