@@ -95,19 +95,23 @@ olist-lakehouse/
 Fungsi: Menampilkan kembali data yang baru saja diinput oleh pengguna dalam format yang mudah dibaca. Ini berfungsi sebagai konfirmasi sebelum melakukan prediksi.
 
 **C. Quick Assessment (Penilaian Cepat):**
+
 Keterangan/Indikator: "Potensi Pengiriman Cepat" dan "Potensi Ulasan Unggul".
+
 Fungsi: Memberikan feedback instan dan kualitatif kepada penjual. Jika penjual memasukkan jumlah hari pengiriman yang singkat, badge "Fast Delivery Potential" akan muncul. Ini menyoroti keunggulan kompetitif yang dimiliki produk tersebut.
 
 **D. Prediction Results (Hasil Prediksi):**
 
 - **Predicted Selling Price (Prediksi Harga Jual):** Ini adalah hasil utama. Angka ini (R$ 82.03) adalah harga jual yang direkomendasikan oleh model agar produk bisa bersaing di pasar.
 - **Estimated Gross Profit (Estimasi Laba Kotor):** Menghitung keuntungan kotor dari penjualan.
+
 Rumus: Prediksi Harga Jual - Harga Modal - Biaya Pengiriman.
 **Contoh:** R$ 82.03 - R$ 50.00 - R$ 15.50 = R$ 16.53.
 
 **E. Price/Delivery Day Ratio (Rasio Harga per Hari Pengiriman):**
 Keterangan/Indikator: "Rasio Nilai Produk".
 Fungsi: Ini adalah metrik lanjutan yang mengukur "nilai" yang diterima pelanggan untuk setiap hari mereka menunggu. Semakin tinggi angkanya, semakin tinggi harga produk relatif terhadap waktu tunggunya. Ini bisa menjadi indikator untuk produk premium atau produk dengan pengiriman cepat.
+
 Rumus: Prediksi Harga Jual / Lama Pengiriman.
 **Contoh:** R$ 82.03 / 5 hari = R$ 16.41.
 
