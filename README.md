@@ -79,6 +79,7 @@ olist-lakehouse/
 - UI Client
   ![image](https://github.com/user-attachments/assets/db754b56-2f89-48c1-8843-14a7850d1060)
   ![image](https://github.com/user-attachments/assets/eeb392e1-df64-46c0-bb01-2713bd66feae)
+  ![image](https://github.com/user-attachments/assets/2cbaa772-0c1a-4fef-b581-a61d132e48c4)
 
 
 
